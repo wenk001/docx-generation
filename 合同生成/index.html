@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>合同生成</title>
+
+  <!-- css -->
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <h1 class="title">表单</h1>
+      <div id="htform"></div>
+    </div>
+
+    <div class="right">
+      <h1 class="title">预览</h1>
+      <div id="htbd"></div>
+      <a class="btn jquery-word-export" href="javascript:void(0)">
+        导出word文档
+      </a>
+    </div>
+  </div>
+  <script src="js/handlebars.js"></script>
+  <script src="js/htmlString.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/FileSaver.js"></script>
+  <script src="js/jquery.wordexport.js"></script>
+  <script type="text/javascript">
+    //jq加载完毕
+    jQuery(document).ready(function ($) {
+      //获取class名为jquery-word-export的a标签，并绑定click事件
+      $("a.jquery-word-export").click(function (event) {
+        //获取id为htbd的元素（合同模板html）调用wordExport导出word
+        $("#htbd").wordExport('员工入职登记表');
+      });
+    });
+  </script>
+</body>
+
+</html>

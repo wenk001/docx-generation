@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>高中各科成绩单「一键生成」</title>
+  </head>
+  <body>
+    <input type="file"
+    accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+    onchange="daoru(this)" onclick="reset(this)" > <br><br>
+    <div ><a class="jquery-word-export" href="javascript:void(0)">
+      导出word文档
+    </a></div>
+    <h4 style="text-align:center">_____同学，在本次考试中成绩如下：</h4>
+    <table  style="text-align:center;" align="center"  bgcolor="black">
+        <tr bgcolor="white">
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">语文</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">数学</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">英语</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">生物</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">地理</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">历史</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">物理</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">化学</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">体育</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">道法</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">总分</td>
+            <td style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">排名</td>
+        </tr>
+        <tr bgcolor="white">
+
+            <td id="Chi" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0">&nbsp;</td>
+            <td id="ChiR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="Mat" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="MatR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="Eng" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="EngR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="Bio" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="BioR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="Geo" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="GeoR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="His" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="HisR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="Phy" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="PhyR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="Che" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="CheR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="PE" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="PER" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="DF" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="DFR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="All" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            <td id="AllR" style="text-align:center;padding:10px" align="center" border="0" cellspacing="0"></td>
+            </tr><br>
+            </table>
+    <div id="form"></div> 
+      <script src="xlsx.core.min.js"></script>
+      <script src="handlebars.js"></script>
+      <script src="String1.js"></script>
+      <script src="jquery-1.11.1.min.js"></script>
+      <script src="FileSaver.js"></script>
+      <script src="jquery.wordexport.js"></script>
+      <script type="text/javascript">
+
+        //jq加载完毕
+        jQuery(document).ready(function ($) {
+          //获取class名为jquery-word-export的a标签，并绑定click事件
+          $("a.jquery-word-export").click(function (event) {
+            //获取id为htbd的元素（合同模板html）调用wordExport导出word
+            $("#form").wordExport('初一各科成绩单');
+          });
+        });
+      </script>
+  </body>
+  </html>
